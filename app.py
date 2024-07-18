@@ -53,9 +53,9 @@ def main():
 
     # Display all previous questions and responses
     for i, (question, response) in enumerate(zip(st.session_state.questions, st.session_state.responses)):
-        st.subheader(f"Question {i+1}:")
+        st.subheader(f"Query {i+1}:")
         st.write(question)
-        st.subheader("Response:")
+        st.subheader("Answer:")
         for row in response:
             st.write(row)
 
