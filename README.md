@@ -12,7 +12,7 @@ TTOS-Xpert is an advanced chatbot designed to convert natural language questions
 
 ## Demo
 
-Check out the live demo: [TTOS-Xpert]()
+Check out the live demo: [TTOS-Xpert](https://ttos--xpert-pxdzijc.streamlit.app/)
 
 ## Usage
 
