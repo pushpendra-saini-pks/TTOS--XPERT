@@ -51,13 +51,15 @@ def main():
     if 'current_input' not in st.session_state:
         st.session_state.current_input = ""
 
+    # Display all previous questions and responses
     for i, (question, response) in enumerate(zip(st.session_state.questions, st.session_state.responses)):
-        st.subheader(f"Query {i+1}:")
+        st.subheader(f"Question {i+1}:")
         st.write(question)
-        st.subheader("Answer:")
+        st.subheader("Response:")
         for row in response:
             st.write(row)
 
+    # Input section for the current question
     st.session_state.current_input = st.text_input("Input: ", value=st.session_state.current_input, key="input")
 
     if st.button("Submit"):
@@ -65,9 +67,11 @@ def main():
             question = st.session_state.current_input
             response = get_gemini_response(question, prompt)
             data = read_sql_query(response, "student.db")
+            # Update the session state immediately
             st.session_state.questions.append(question)
             st.session_state.responses.append(data)
             st.session_state.current_input = ""  # Clear the input field after submission
+            st.experimental_rerun()  # Rerun the app to update the display
 
 if __name__ == "__main__":
     main()
