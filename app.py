@@ -71,7 +71,7 @@ def main():
             st.session_state.questions.append(question)
             st.session_state.responses.append(data)
             st.session_state.current_input = ""  # Clear the input field after submission
-            st.experimental_rerun()  # Rerun the app to update the display
+            st.rerun()  # Rerun the app to update the display
 
 if __name__ == "__main__":
     main()
